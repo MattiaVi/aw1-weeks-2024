@@ -56,7 +56,7 @@ function AnswerData(props) {
   );
 }
 
-function AnswerAction(props) {
+function AnswerAction(props) { //creato una volta per ogni riga 
   return(
     <td>
       <Button variant='warning' onClick={

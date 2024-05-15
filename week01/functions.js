@@ -1,6 +1,6 @@
-'use strict';
+'use strict'; //essendo js è obbligatorio 
 
-// constructor function
+// constructor function, oggetto movie 
 function Movie(title, genre, duration, director) {
   this.title = title;
   this.genre = genre;

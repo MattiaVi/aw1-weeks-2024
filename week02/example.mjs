@@ -1,9 +1,8 @@
-//'use strict'; // di default con i moduli ES
+//'use strict'; // non serve con mjs
 
 // CommonJS
 //const dayjs = require('dayjs');
 
-// ES
 import dayjs from 'dayjs';
 
 let oggi = dayjs(); // oggi

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; //funzionalità da EicmaScript in poi
 
 const scores = [20, -5, -1, 100, -3, 30, 50];
 const betterScores = [];

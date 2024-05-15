@@ -39,7 +39,7 @@ Description: Retrieve the question represented by `<id>`.
 Response: `200 OK` (success), `404 Not Found` (wrong id), or `500 Internal Server Error` (generic error).
 
 Response body:
-```
+```json  
 {
   "id": 1,
   "text": "Is JavaScript better than Python?",

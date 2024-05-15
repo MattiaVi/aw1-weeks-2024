@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
+<<<<<<< Updated upstream:week08/react-qa/src/components/AnswerForm.jsx
 function AnswerForm() {
+=======
+function FormAnswer() { //ci serve stato iniziale per ogni elemento del form 
+>>>>>>> Stashed changes:week08/react-qa/src/components/FormAnswer.jsx
   const [text, setText] = useState('');
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');

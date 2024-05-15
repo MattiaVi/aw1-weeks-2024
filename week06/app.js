@@ -84,19 +84,19 @@ function createAnswerRow(answer) {
 
     const tdActions = document.createElement('td');
         const buttonVote = document.createElement('button');
-        buttonVote.classList.add('btn', 'btn-warning');
-        buttonVote.innerHTML = "<i class='bi bi-arrow-up'></i>"
+        buttonVote.classList.add('btn', 'btn-warning'); //posso usare le classi bootstrap, siccome importate 
+        buttonVote.innerHTML = "<i class='bi bi-arrow-up'></i>" //mettere html dentro oggetto, modo alternativo 
         tdActions.appendChild(buttonVote);
 
         buttonVote.addEventListener('click', event => {
             console.log(event.target.parentElement.parentElement);  // note that it changes if you click on the drawing or outside of it
             console.log(event.currentTarget.parentElement.parentElement.id);  // with currentTarget it always gets the button
-            tdScore.innerText = Number(tdScore.innerText) + 1;
-            answer.score = answer.score +1;
+            tdScore.innerText = Number(tdScore.innerText) + 1; //Number perchè inner text è una stringa -> occhio che se ricarico la page rimane questo
+            answer.score = answer.score +1; 
         })
 
         const buttonEdit = document.createElement('button');
-        buttonEdit.classList.add('btn', 'btn-primary', 'mx-1');
+        buttonEdit.classList.add('btn', 'btn-primary', 'mx-1'); //mx per dare margine
         buttonEdit.innerHTML = "<i class='bi bi-pencil-square'></i>"
         tdActions.appendChild(buttonEdit);
 
@@ -107,7 +107,7 @@ function createAnswerRow(answer) {
 
         buttonDelete.addEventListener('click', event => {
             console.log(event.currentTarget.parentElement.parentElement.id);
-            tr.remove();
+            tr.remove(); //riga sparisce dal dom 
         })
     tr.appendChild(tdActions);
 
@@ -124,9 +124,11 @@ function fillAnswersTable(answers) {
      */
 
     /* Very simple approach used during lecture to clean the table; remove all the HTML content. It deletes also the row dedicated to inserting a new answer. */
-    // answerTable.innerHTML = "";
+    // answerTable.innerHTML = ""; //idea di svuotare tabella e metterla ordinata 
 
     /* Cleaning the table; inserting only the "new-answer-row" */
+
+    
     answerTable.innerHTML = `<tr id="new-answer-row">
         <td><input class="form-control" type="date"></td>
         <td><input class="form-control" type="text"></td>
@@ -136,9 +138,9 @@ function fillAnswersTable(answers) {
     </tr>
     `
 
-    for(const answer of answers) {
+    for(const answer of answers) { //itera sulle varie risposte e per ogni risposta costuisce una riga 
         const trAnswer = createAnswerRow(answer);
-        answerTable.prepend(trAnswer);
+        answerTable.prepend(trAnswer);  //ricroda sempre di prependere, così form non rimane in cima 
 
         /*
          * Alternative: using string literal.
@@ -148,9 +150,9 @@ function fillAnswersTable(answers) {
         // answerTable.insertAdjacentHTML('afterbegin', trAnswer);
     }
 }
-
+//gestione dello score
 function addSortListener(answers) {
-    const sortScoreIcon = document.getElementById('sort-score');
+    const sortScoreIcon = document.getElementById('sort-score'); //per andare a prendere icona che ho definito 
     sortScoreIcon.addEventListener('click', event => {
         const sortedAnswers = [...answers];
         if(sortingOrder === "asc") {
@@ -174,9 +176,9 @@ function addSortListener(answers) {
 
 function main() {
     const question = new Question('Is JS better than Python?', 'Luigi De Russis', '2024-02-27');
-    question.init();
+    question.init(); //mima in pratica una get a backend che interroga il database
     const answers = question.getAnswers();
-    //console.log(answers);  --> printing answers before start working on them
+    //console.log(answers);  //--> printing answers before start working on them
     fillAnswersTable(answers);
     addSortListener(answers);
 }

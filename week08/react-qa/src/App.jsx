@@ -11,7 +11,7 @@ fakeQuestion.init();
 const fakeAnswers = fakeQuestion.getAnswers();
 
 function App() {
-  const [question, setQuestion] = useState(fakeQuestion);
+  const [question, setQuestion] = useState(fakeQuestion); //quali sono le cose che vorremmo cambiare ??
   const [answers, setAnswers] = useState(fakeAnswers);
 
   const voteUp = (answerId) => {
@@ -19,7 +19,7 @@ function App() {
       return oldAnswers.map(ans => {
         if(ans.id === answerId)
           // ritorno una nuova, aggiornata, risposta
-          return new Answer(ans.id, ans.text, ans.email, ans.date, ans.score +1);
+          return new Answer(ans.id, ans.text, ans.email, ans.date, ans.score +1); //devo farlo con nuovo oggetto 
         else
           return ans;
       });
