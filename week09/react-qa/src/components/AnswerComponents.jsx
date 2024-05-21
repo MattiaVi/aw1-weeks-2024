@@ -5,12 +5,14 @@ import { useState } from 'react';
 
 function Answers(props) {
   const [mode, setMode] = useState('view');
-  const [editableAnswer, setEditableAnswer] = useState();
+  const [editableAnswer, setEditableAnswer] = useState(); //nuovo stati che ci permetta di modificare 
 
-  const handleEdit = (answer) => {
+  const handleEdit = (answer) => { //imposta la ripsosta e cambia lo stato, rirenderizza 
     setEditableAnswer(answer);
-    setMode('edit');
-  }
+    setMode('edit'); 
+  } // risposta da modificare è in answer table e info è da passare in form (alrtro componente)
+  // qui lo stato poi passato al form 
+  // antenato comune è answers 
 
   return(
     <>
@@ -34,6 +36,7 @@ function Answers(props) {
 }
 
 function AnswerTable (props) {
+  //none, ascendente, discendente 
   const [sortOrder, setSortOrder] = useState('none');
 
   const sortedAnswers = [...props.answers];

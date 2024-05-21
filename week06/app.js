@@ -50,9 +50,9 @@ function createAnswerRowLiteral(answer) {
         <td>${answer.email}</td>
         <td>${answer.score}</td>
         <td>
-            <button class="btn btn-warning"><i class='bi bi-arrow-up'></i></button>
-            <button class="btn btn-primary"><i class='bi bi-pencil-square mx-1'></i></button>
-            <button class="btn btn-danger"><i class='bi bi-trash'></i></button>
+            <button class="btn btn-warning"><i class='bi bi-arrow-up'></i> </button>
+            <button class="btn btn-primary"><i class='bi bi-pencil-square mx-1'> </i></button>
+            <button class="btn btn-danger"><i class='bi bi-trash'></i> </button>
         </td>
     </tr>
     `
@@ -113,22 +113,13 @@ function createAnswerRow(answer) {
 
     return tr;
 }
-
+//funzione che riceve le rispose e popola la tabella 
 function fillAnswersTable(answers) {
-    const answerTable = document.getElementById('answers-table');
-    // const answersTable = document.querySelector('#answers-table');  // <-- alternative
+    const answerTable = document.getElementById('answers-table'); //prendo la tabella 
+    // const answersTable = document.querySelector('#answers-table');  // alternativa 
 
-    /*
-     * After adding sorting operation, is necessary to clean the table before inserting ordered answers.
-     * This piece of code is useless when the application is started for the first time.
-     */
-
-    /* Very simple approach used during lecture to clean the table; remove all the HTML content. It deletes also the row dedicated to inserting a new answer. */
-    // answerTable.innerHTML = ""; //idea di svuotare tabella e metterla ordinata 
-
-    /* Cleaning the table; inserting only the "new-answer-row" */
-
-    
+    //pulisco la tabella, serve pi che altro per il sorting 
+    // svuoto ma con struttura 
     answerTable.innerHTML = `<tr id="new-answer-row">
         <td><input class="form-control" type="date"></td>
         <td><input class="form-control" type="text"></td>
@@ -137,6 +128,8 @@ function fillAnswersTable(answers) {
         <td><button class="btn btn-success">Add</button></td>
     </tr>
     `
+    // svuto brutalmente 
+    //answerTable.innerHTML = ""; (modo 2)
 
     for(const answer of answers) { //itera sulle varie risposte e per ogni risposta costuisce una riga 
         const trAnswer = createAnswerRow(answer);
@@ -147,7 +140,7 @@ function fillAnswersTable(answers) {
          * Note: with this approach event listeners are not enabled!
          */
         // const trAnswer = createAnswerRowLiteral(answer);
-        // answerTable.insertAdjacentHTML('afterbegin', trAnswer);
+        // answerTable.insertAdjacentHTML('afterbegin', trAnswer);  //modo 2 usando html diretto
     }
 }
 //gestione dello score

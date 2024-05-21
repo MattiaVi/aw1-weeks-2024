@@ -14,7 +14,7 @@ function App() {
   const [question, setQuestion] = useState(fakeQuestion);
   const [answers, setAnswers] = useState(fakeAnswers);
 
-  const voteUp = (answerId) => {
+  const voteUp = (answerId) => { //lo passo fino a bottone giù
     setAnswers(oldAnswers => {
       return oldAnswers.map(ans => {
         if(ans.id === answerId)
@@ -26,11 +26,11 @@ function App() {
     });
   }
 
-  const addAnswer = (answer) => {
+  const addAnswer = (answer) => { //aggiungere elemento in stato array 
     setAnswers(oldAnswers => {
-      const newId = Math.max(...oldAnswers.map(ans => ans.id)) + 1;
+      const newId = Math.max(...oldAnswers.map(ans => ans.id)) + 1; //in futuro ce lo da il server che lo prende dal db, per ora lo faccio incrementale 
       const newAnswer = new Answer(newId, answer.text, answer.email, answer.date, 0);
-      return [...oldAnswers, newAnswer];
+      return [...oldAnswers, newAnswer]; //vecchio stato e nuova domanda 
     });
   }
 
