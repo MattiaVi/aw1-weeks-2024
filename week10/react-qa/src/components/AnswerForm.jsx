@@ -28,7 +28,7 @@ function AnswerForm(props) {
     } else {
       // aggiungere la risposta allo stato
       props.addAnswer(answer);
-      navigate('..', {relative: "path"});
+      navigate('..', {relative: "path"}); // torna indietro di uno / del path 
     }
   }
 
@@ -52,5 +52,5 @@ function AnswerForm(props) {
     </Form>
   );
 }
-
+//gli abbiamo messo il class name per far visualizzare il lin come un bottone e poi facciamo navigare in maniera relativa, saliamo di un path 
 export default AnswerForm;

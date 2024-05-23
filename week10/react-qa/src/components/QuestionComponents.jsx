@@ -12,6 +12,7 @@ export function QuestionLayout(props) {
   </>);
 }
 
+//layout per aggiungere  o modificare una domanda 
 export function AddEditQuestionLayout(props) {
   const location = useLocation();
   const editableAnswer = location.state;

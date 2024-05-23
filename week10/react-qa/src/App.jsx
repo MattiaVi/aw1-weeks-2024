@@ -75,6 +75,8 @@ function App() {
     -------
   **/
 
+  
+    //nella route specifico il path e quello che vado a renderizzare 
   return (
     <Routes>
       <Route element={<>
