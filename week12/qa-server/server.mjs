@@ -68,7 +68,7 @@ app.post('/api/questions/:id/answers', [
 
   try {
     const id = await addAnswer(newAnswer, questionId);
-    setTimeout(() => { res.status(201).location(id).end();}, 5000);
+    setTimeout(() => { res.status(201).location(id).end();}, 5000); //rallentiamo di 5 secondi il server (non consegnare server rallentato)
     //res.status(201).location(id).end();
   } catch(e) {
     console.error(`ERROR: ${e.message}`);

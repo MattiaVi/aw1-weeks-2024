@@ -10,7 +10,7 @@ function AnswerForm(props) {
   const {questionId} = useParams();
   const navigate = useNavigate();
 
-  const [waiting, setWaiting] = useState(false);
+  const [waiting, setWaiting] = useState(false); //per gestire il server lento (settato a false perchè inizialmente il form va compilato)
   
   const [text, setText] = useState(props.answer ? props.answer.text : '');
   const [email, setEmail] = useState(props.answer ? props.answer.email : '');
@@ -34,6 +34,7 @@ function AnswerForm(props) {
       API.addAnswer(answer, questionId)
         .then(()=> navigate(`/questions/${questionId}`));
         //.catch() gestire eventuali errori
+        //posso usare async e await anche 
     }
   }
 

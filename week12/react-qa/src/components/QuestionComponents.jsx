@@ -32,7 +32,8 @@ export function QuestionLayout(props) {
         if(ans.id === answerId) {
           // ritorno una nuova, aggiornata, risposta
           const answer = new Answer(ans.id, ans.text, ans.email, ans.date, ans.score +1);
-          answer.voted = true;
+          answer.voted = true; //oggetto javascript posso aggiungere e togliere prorpietà in ogni momento 
+          //esiste solo se temporaneo e poi specifico in html che non posso rivoltarlo finché voted è a true 
           return answer;
         }
         else
@@ -47,7 +48,9 @@ export function QuestionLayout(props) {
 
   return(
     <>
-    {/* The check on "question" is needed to intercept errors due to invalid URLs (e.g., /questions/5 when you have two questions only) */}
+    {/* The check on "question" is needed to intercept errors due to invalid URLs (e.g., /questions/5 when you have two questions only)*/}
+    {/*e anche quando questions è undefined (se navigo in app non ho problemi perchè ho già fatto use effect in altra parte, se uso url use effect non funziona) è come se dovessi dare tempo di caricare */}
+    {/* dovuto al fatto che useeffect chiamato dopo e quindi ha conseguenze su applicazione */}
     {question ? <>
       <QuestionDescription question={question} />
       <Answers answers={answers} voteUp={voteUp}></Answers></> :
